@@ -39,21 +39,21 @@ TARGET_BOARD_PLATFORM := mt8768t
 # TARGET_BOARD_PLATFORM_GPU is not set
 
 # Kernel
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/KernelImage
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
 
-ifeq ($(TARGET_DEVICE_MODEL),T220)
-	BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/T220_RecoveryDTBO
-	TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/T220_KernelDTB
-else ifeq ($(TARGET_DEVICE_MODEL),T225)
-	BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/T225_RecoveryDTBO
-	TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/T225_KernelDTB
-else ifeq ($(TARGET_DEVICE_MODEL),T227)
-	BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/T227_RecoveryDTBO
-	TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/T227_KernelDTB
-else
-	# Please specify a valid TARGET_DEVICE_MODEL via export!
-	# ex: source build/envsetup.sh; export TARGET_DEVICE_MODEL=T225; lunch twrp_gta7lite-eng; mka recoveryimage
-endif
+# ifeq ($(TARGET_DEVICE_MODEL),T220)
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
+# else ifeq ($(TARGET_DEVICE_MODEL),T225)
+# 	BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/T225_RecoveryDTBO
+# 	TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/T225_KernelDTB
+# else ifeq ($(TARGET_DEVICE_MODEL),T227)
+# 	BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/T227_RecoveryDTBO
+# 	TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/T227_KernelDTB
+# else
+# 	# Please specify a valid TARGET_DEVICE_MODEL via export!
+# 	# ex: source build/envsetup.sh; export TARGET_DEVICE_MODEL=T225; lunch twrp_gta7lite-eng; mka recoveryimage
+# endif
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
